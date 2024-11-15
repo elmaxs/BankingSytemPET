@@ -8,7 +8,7 @@ namespace BankingSystemPET.BL.Controller
 {
     public abstract class BaseController
     {
-        private readonly IDataSaver manager;
+        private readonly IDataSaver manager = new JsonSaverController();
 
         protected void Save<T>(List<T> item) where T : class
         {

@@ -10,8 +10,6 @@ namespace BankingSystemPET.BL.Model
     {
         public int ID { get; set; }
 
-        public bool IsNewUser { get; set; } = false;
-
         public string? UserName { get; set; }
 
         public int Indef { get; set; }
@@ -26,7 +24,14 @@ namespace BankingSystemPET.BL.Model
 
         public int CurrectAge { get { return DateTime.Now.Year - BirthDate.Value.Year; } }
 
-        public User(string userName, int indef, string password, string placeResidence, string phoneNumber, DateTime? birthDate)
+        public User(int indef)
+        {
+            if (Indef <= 0)
+                throw new ArgumentException("Indef cant be equal or less 0");
+            Indef = indef;
+        }
+
+        public User(string userName, string password, string placeResidence, string phoneNumber, DateTime? birthDate)
         {
             if (string.IsNullOrWhiteSpace(userName))
                 throw new ArgumentNullException("User name cant be null or empty", nameof(userName));
@@ -40,7 +45,6 @@ namespace BankingSystemPET.BL.Model
                 throw new ArgumentNullException("Birth date cant be null or minimum value", nameof(birthDate));
 
             UserName = userName;
-            Indef = indef;
             Password = password;
             PlaceResidence = placeResidence;
             PhoneNumber = phoneNumber;
