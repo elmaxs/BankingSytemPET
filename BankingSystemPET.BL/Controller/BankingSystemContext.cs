@@ -12,7 +12,7 @@ namespace BankingSystemPET.BL.Controller
     public class BankingSystemContext : DbContext
     {
         public DbSet<BankAccount> BankAccount { get; set; }
-        public DbSet<User> users { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public BankingSystemContext()
         {

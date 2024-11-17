@@ -14,9 +14,9 @@ namespace BankingSystemPET.BL.Model
 
         public User? User { get; set; }
 
-        public TypeBankAccount? TypeBankAccount { get; set; }
+        public TypeBankAccount? TypeBankAccounts { get; set; }
 
-        public BankAccount(User user, decimal amountBalance, TypeBankAccount? typeBankAccount)
+        public BankAccount(User user, decimal amountBalance = 0, TypeBankAccount? typeBankAccount = TypeBankAccount.None)
         {
             if(User == null) throw new ArgumentNullException("User cant be null", nameof(user));
             if(amountBalance < 0) throw new ArgumentException("Amount balance cant be less 0", nameof(amountBalance));
@@ -24,7 +24,7 @@ namespace BankingSystemPET.BL.Model
 
             User = user;
             AmountBalance = amountBalance;
-            this.TypeBankAccount = typeBankAccount;
+            this.TypeBankAccounts = typeBankAccount;
         }
     }
 }
