@@ -24,11 +24,13 @@ namespace BankingSystemPET.BL.Controller
                 User = new User(indef);
                 IsNewUser = true;
                 SetNewUserData();
+                Save();
             }
         }
 
         private void SetNewUserData()
         {
+            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "NotRegistered"));
             Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterName"));
             string name = Console.ReadLine();
             Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterPassword"));
@@ -60,7 +62,6 @@ namespace BankingSystemPET.BL.Controller
             User.PlaceResidence = placeResidence;
             User.PhoneNumber = phoneNumber;
             User.BirthDate = birthDate;
-            Save();
         }
 
         private DateTime DataTimeParse()
@@ -68,7 +69,7 @@ namespace BankingSystemPET.BL.Controller
             Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterBirthDate"));
             while (true)
             {
-                if(DateTime.TryParse(Console.ReadLine(), out var date))
+                if (DateTime.TryParse(Console.ReadLine(), out var date))
                 {
                     return date;
                 }
@@ -84,19 +85,30 @@ namespace BankingSystemPET.BL.Controller
             //if (users == null || users.Count == 0)
             //    return null;
             //else
-                return users.FirstOrDefault(i => i.Indef == indef);
+            return users.FirstOrDefault(i => i.Indef == indef);
         }
 
         private void Save()
         {
-            List<User> users = Load<User>();
-            User _currentUser = users.FirstOrDefault(i => i.Indef == User.Indef);
+            // Загружаем список пользователей
+            List<User> users = Load<User>() ?? new List<User>();
 
-            if (_currentUser == null)
+            // Пытаемся найти пользователя с таким же Indef
+            int index = users.FindIndex(i => i.Indef == User.Indef);
+
+            if (index == -1)
+            {
+                // Если пользователь не найден, добавляем нового
                 users.Add(User);
+            }
             else
-                _currentUser = User;
-            base.Save(users);
+            {
+                // Если пользователь найден, заменяем его новым объектом
+                users[index] = User;
+            }
+
+            // Сохраняем обновленный список пользователей
+            base.Save(users);         
         }
     }
 }

@@ -22,14 +22,14 @@ namespace BankingSystemPET.BL.Localization {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class UserControllerMessages {
+    internal class OperationController {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal UserControllerMessages() {
+        internal OperationController() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BankingSystemPET.BL.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserControllerMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BankingSystemPET.BL.Localization.OperationController", typeof(OperationController).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,56 @@ namespace BankingSystemPET.BL.Localization {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Enter your birth date.
+        ///   Ищет локализованную строку, похожую на Chose operation.
         /// </summary>
-        internal static string EnterBirthDate {
+        internal static string ChoseOperation {
             get {
-                return ResourceManager.GetString("EnterBirthDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Please enter your name.
-        /// </summary>
-        internal static string EnterName {
-            get {
-                return ResourceManager.GetString("EnterName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Please enter your new password.
-        /// </summary>
-        internal static string EnterPassword {
-            get {
-                return ResourceManager.GetString("EnterPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Enter your actual phone number.
-        /// </summary>
-        internal static string EnterPhoneNumber {
-            get {
-                return ResourceManager.GetString("EnterPhoneNumber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Enter your actual residence.
-        /// </summary>
-        internal static string EnterResidence {
-            get {
-                return ResourceManager.GetString("EnterResidence", resourceCulture);
+                return ResourceManager.GetString("ChoseOperation", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Invalid data, try again.
         /// </summary>
-        internal static string InvalidDataTimeParse {
+        internal static string InvalidData {
             get {
-                return ResourceManager.GetString("InvalidDataTimeParse", resourceCulture);
+                return ResourceManager.GetString("InvalidData", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на You are not registered.
+        ///   Ищет локализованную строку, похожую на Operation was not found, try again.
         /// </summary>
-        internal static string NotRegistered {
+        internal static string NotFoundOperation {
             get {
-                return ResourceManager.GetString("NotRegistered", resourceCulture);
+                return ResourceManager.GetString("NotFoundOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 2. Removal operation.
+        /// </summary>
+        internal static string RemovalOperation {
+            get {
+                return ResourceManager.GetString("RemovalOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 1. Replenishment operation.
+        /// </summary>
+        internal static string ReplenishmentOperation {
+            get {
+                return ResourceManager.GetString("ReplenishmentOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 3. Translation operation.
+        /// </summary>
+        internal static string TransferOperation {
+            get {
+                return ResourceManager.GetString("TransferOperation", resourceCulture);
             }
         }
     }

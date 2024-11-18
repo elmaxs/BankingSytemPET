@@ -117,25 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EnterBirthDate" xml:space="preserve">
-    <value>Enter your birth date</value>
+  <data name="ChoseOperation" xml:space="preserve">
+    <value>Chose operation</value>
   </data>
-  <data name="EnterName" xml:space="preserve">
-    <value>Please enter your name</value>
-  </data>
-  <data name="EnterPassword" xml:space="preserve">
-    <value>Please enter your new password</value>
-  </data>
-  <data name="EnterPhoneNumber" xml:space="preserve">
-    <value>Enter your actual phone number</value>
-  </data>
-  <data name="EnterResidence" xml:space="preserve">
-    <value>Enter your actual residence</value>
-  </data>
-  <data name="InvalidDataTimeParse" xml:space="preserve">
+  <data name="InvalidData" xml:space="preserve">
     <value>Invalid data, try again</value>
   </data>
-  <data name="NotRegistered" xml:space="preserve">
-    <value>You are not registered</value>
+  <data name="NotFoundOperation" xml:space="preserve">
+    <value>Operation was not found, try again</value>
+  </data>
+  <data name="RemovalOperation" xml:space="preserve">
+    <value>2. Removal operation</value>
+  </data>
+  <data name="ReplenishmentOperation" xml:space="preserve">
+    <value>1. Replenishment operation</value>
+  </data>
+  <data name="TransferOperation" xml:space="preserve">
+    <value>3. Translation operation</value>
   </data>
 </root>
