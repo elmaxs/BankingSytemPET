@@ -18,6 +18,7 @@ namespace BankingSystemPET.BL.Controller
         public BankAccountController(int indef)
         {
             BankAccount = GetAccount(indef);
+
             if(BankAccount == null)
             {
                 CreateNewAccount(indef);
@@ -71,6 +72,15 @@ namespace BankingSystemPET.BL.Controller
         {
             List<BankAccount> bankAccounts = Load<BankAccount>();
             if(bankAccounts == null || bankAccounts.Count == 0)
+                bankAccounts = new List<BankAccount>();
+
+            bankAccounts.Add(BankAccount);
+            Save(bankAccounts);
+        }
+        public void SaveAnotherClass()
+        {
+            List<BankAccount> bankAccounts = Load<BankAccount>();
+            if (bankAccounts == null || bankAccounts.Count == 0)
                 bankAccounts = new List<BankAccount>();
 
             bankAccounts.Add(BankAccount);

@@ -70,6 +70,33 @@ namespace BankingSystemPET.BL.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter amount for replenishment.
+        /// </summary>
+        internal static string EnterAmountReplenishment {
+            get {
+                return ResourceManager.GetString("EnterAmountReplenishment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter your indef.
+        /// </summary>
+        internal static string EnterYourIndef {
+            get {
+                return ResourceManager.GetString("EnterYourIndef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Amount cant be less 0.
+        /// </summary>
+        internal static string ErrorAmountLessNull {
+            get {
+                return ResourceManager.GetString("ErrorAmountLessNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Invalid data, try again.
         /// </summary>
         internal static string InvalidData {

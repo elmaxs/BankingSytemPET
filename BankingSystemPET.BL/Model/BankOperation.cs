@@ -10,22 +10,22 @@ namespace BankingSystemPET.BL.Model
     {
         public int Id { get; set; }
         public int NumberOperation { get; set; }
-        public User FromUser { get; set; }
-        public User ToUser { get; set; }
+        public BankAccount FromAccount { get; set; }
+        public BankAccount ToAccount { get; set; }
         public DateTime OperationTime { get; set; }
         public TypeOperation OperationType { get; set; }
 
-        public BankOperation(int numberOperation, DateTime operationTime, TypeOperation operation, User fromUser, User toUser)
+        public BankOperation(int numberOperation, DateTime operationTime, TypeOperation operation, BankAccount fromAccount, BankAccount toAccount)
         {
             if (numberOperation <= 0) throw new ArgumentException("Number operation cant be less or equal 0", nameof(numberOperation));
-            if (fromUser == null) throw new ArgumentNullException("User cant be null", nameof(fromUser));
-            if (toUser == null) throw new ArgumentNullException("User cant be null", nameof(toUser));
+            if (fromAccount == null) throw new ArgumentNullException("User cant be null", nameof(fromAccount));
+            if (toAccount == null) throw new ArgumentNullException("User cant be null", nameof(toAccount));
             if (operationTime == DateTime.MinValue) throw new ArgumentException("Date time cant be min value", nameof(operationTime));
             if (!Enum.IsDefined(typeof(TypeOperation), operation)) throw new ArgumentException("Not correct type operation data", nameof(operation));
 
             NumberOperation = numberOperation;
-            FromUser = fromUser;
-            ToUser = toUser;
+            FromAccount = fromAccount;
+            ToAccount = toAccount;
             OperationTime = operationTime;
             OperationType = operation;
         }

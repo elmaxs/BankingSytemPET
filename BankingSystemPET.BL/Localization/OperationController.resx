@@ -120,6 +120,15 @@
   <data name="ChoseOperation" xml:space="preserve">
     <value>Chose operation</value>
   </data>
+  <data name="EnterAmountReplenishment" xml:space="preserve">
+    <value>Enter amount for replenishment</value>
+  </data>
+  <data name="EnterYourIndef" xml:space="preserve">
+    <value>Enter your indef</value>
+  </data>
+  <data name="ErrorAmountLessNull" xml:space="preserve">
+    <value>Amount cant be less 0</value>
+  </data>
   <data name="InvalidData" xml:space="preserve">
     <value>Invalid data, try again</value>
   </data>
