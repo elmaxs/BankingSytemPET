@@ -21,18 +21,24 @@ namespace BankingSystemPET.BL.Controller
 
             if(BankAccount == null)
             {
-                CreateNewAccount(indef);
-                Save();
+                //nado придумать как делать правильно проверку для операций контроллера при перекидке денег 
+                //2 stroki nize dobavil for test
+                Console.WriteLine("Account not found, wanna create new?\n 1.Yes \t2.No");
+                if (int.Parse(Console.ReadLine()) == 1)
+                {
+                    CreateNewAccount(indef);
+                    Save();
+                }
             }
         }
 
         private void CreateNewAccount(int indef)
         {
             var userController = new UserController(indef);
-            var user = userController.User;
 
             TypeBankAccount typeBankAccount = ParseTypeAccount();
-            CreateNewAccount(user, typeBankAccount);
+
+            CreateNewAccount(userController.User, typeBankAccount);
         }
 
         private void CreateNewAccount(User user, TypeBankAccount typeBankAccount)
@@ -77,13 +83,21 @@ namespace BankingSystemPET.BL.Controller
             bankAccounts.Add(BankAccount);
             Save(bankAccounts);
         }
-        public void SaveAnotherClass()
+        public void SaveAnotherClass(BankAccount bankAccount)
         {
             List<BankAccount> bankAccounts = Load<BankAccount>();
-            if (bankAccounts == null || bankAccounts.Count == 0)
-                bankAccounts = new List<BankAccount>();
-
-            bankAccounts.Add(BankAccount);
+            if (bankAccount == null || bankAccounts == null || bankAccounts.Count == 0)
+            {
+                bankAccounts.Add(BankAccount);
+            }
+            else
+            {
+                BankAccount b = bankAccounts.FirstOrDefault(a => a.User.Indef == bankAccount.User.Indef);
+                if (b != null)
+                {
+                    b.AmountBalance = bankAccount.AmountBalance;
+                }
+            }
             Save(bankAccounts);
         }
     }

@@ -70,11 +70,29 @@ namespace BankingSystemPET.BL.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter amount for removal.
+        /// </summary>
+        internal static string EnterAmountRemoval {
+            get {
+                return ResourceManager.GetString("EnterAmountRemoval", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Enter amount for replenishment.
         /// </summary>
         internal static string EnterAmountReplenishment {
             get {
                 return ResourceManager.GetString("EnterAmountReplenishment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter amount for transfer.
+        /// </summary>
+        internal static string EnterAmountTransfer {
+            get {
+                return ResourceManager.GetString("EnterAmountTransfer", resourceCulture);
             }
         }
         

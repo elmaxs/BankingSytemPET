@@ -120,8 +120,14 @@
   <data name="ChoseOperation" xml:space="preserve">
     <value>Chose operation</value>
   </data>
+  <data name="EnterAmountRemoval" xml:space="preserve">
+    <value>Enter amount for removal</value>
+  </data>
   <data name="EnterAmountReplenishment" xml:space="preserve">
     <value>Enter amount for replenishment</value>
+  </data>
+  <data name="EnterAmountTransfer" xml:space="preserve">
+    <value>Enter amount for transfer</value>
   </data>
   <data name="EnterYourIndef" xml:space="preserve">
     <value>Enter your indef</value>

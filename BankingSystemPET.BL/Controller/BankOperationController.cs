@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Resources;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
@@ -90,9 +91,20 @@ namespace BankingSystemPET.BL.Controller
             }
         }
 
-        private decimal GetAmount()
+        private string GetFirstWord(string input)
         {
-            Console.WriteLine("Enter amount for replenishment");
+            // Используем регулярное выражение для выделения первой части
+            string[] parts = Regex.Split(input, "(?=[A-Z])");
+
+            // Возвращаем первое слово
+            return parts.Length > 0 ? parts[0] : string.Empty;
+        }
+
+        private decimal GetAmount(string nameMethod)
+        {
+            if (string.IsNullOrWhiteSpace(nameMethod)) throw new ArgumentNullException("Name method cant be null", nameof(nameMethod));
+
+            Console.WriteLine(LocalizationManager.GetString(_resourceManager, $"EnterAmount{nameMethod}"));
             while (true)
             {
                 if (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
@@ -103,17 +115,18 @@ namespace BankingSystemPET.BL.Controller
         }
         private void ReplenishmentOperation()
         {
-            decimal amount = GetAmount();
+            decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
             if (amount < 0)
                 Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
 
             this.BankAccount.BankAccount.AmountBalance += amount;
-            BankAccount.SaveAnotherClass();
+
+            BankAccount.SaveAnotherClass(BankAccount.BankAccount);
         }
 
         private void RemovalOperation()
         {
-            decimal amount = GetAmount();
+            decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
             if (amount < 0)
                 Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
 
@@ -121,7 +134,8 @@ namespace BankingSystemPET.BL.Controller
                 Console.WriteLine("The top-up amount is greater than the remaining amount");
 
             this.BankAccount.BankAccount.AmountBalance -= amount;
-            BankAccount.SaveAnotherClass();
+
+            BankAccount.SaveAnotherClass(BankAccount.BankAccount);
         }
 
         private void TransferOperation()
@@ -129,15 +143,18 @@ namespace BankingSystemPET.BL.Controller
             //in BankAccountController nado sdelat opros hotite sdelat acc ili net
             Console.WriteLine("Enter indef account to transfer");
             int indef = GetIndef();
+
             BankAccountController bankAccountTo = new BankAccountController(indef);
-            decimal amount = GetAmount();
+
+            decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
             if (amount < 0 || amount > this.BankAccount.BankAccount.AmountBalance)
                 Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
 
             bankAccountTo.BankAccount.AmountBalance += amount;
             this.BankAccount.BankAccount.AmountBalance -= amount;
-            bankAccountTo.SaveAnotherClass();
-            BankAccount.SaveAnotherClass();
+
+            bankAccountTo.SaveAnotherClass(bankAccountTo.BankAccount);
+            BankAccount.SaveAnotherClass(BankAccount.BankAccount);
         }
 
         private List<BankOperation> Load()
