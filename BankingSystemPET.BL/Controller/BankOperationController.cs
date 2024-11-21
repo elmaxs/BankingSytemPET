@@ -16,6 +16,7 @@ namespace BankingSystemPET.BL.Controller
         private static readonly ResourceManager _resourceManager =
             new ResourceManager("BankingSystemPET.BL.Localization.OperationController", typeof(BankOperationController).Assembly);
 
+        public int NumberOperation { get; set; }
         public BankAccountController BankAccount { get; set; }
         public BankOperation BankOperation { get; set; }
 
@@ -122,6 +123,8 @@ namespace BankingSystemPET.BL.Controller
             this.BankAccount.BankAccount.AmountBalance += amount;
 
             BankAccount.SaveAnotherClass(BankAccount.BankAccount);
+
+            BankOperation = new BankOperation(NumberOperation, DateTime.Now, TypeOperation.Replenishment, BankAccount.BankAccount, BankAccount.BankAccount);
         }
 
         private void RemovalOperation()
@@ -136,29 +139,53 @@ namespace BankingSystemPET.BL.Controller
             this.BankAccount.BankAccount.AmountBalance -= amount;
 
             BankAccount.SaveAnotherClass(BankAccount.BankAccount);
+            BankOperation = new BankOperation(NumberOperation, DateTime.Now, TypeOperation.Removal, BankAccount.BankAccount, BankAccount.BankAccount);
         }
 
         private void TransferOperation()
         {
-            //in BankAccountController nado sdelat opros hotite sdelat acc ili net
-            Console.WriteLine("Enter indef account to transfer");
-            int indef = GetIndef();
+            while (true)
+            {
+                BankAccountController bankAccountTo;
+                //in BankAccountController nado sdelat opros hotite sdelat acc ili net
+                Console.WriteLine("Enter indef account to transfer");
+                int indef = GetIndef();
 
-            BankAccountController bankAccountTo = new BankAccountController(indef);
+                try
+                {
+                    bankAccountTo = new BankAccountController(indef.ToString());
+                }
+                catch (ArgumentNullException ex)
+                {
+                    Console.WriteLine("Account not found. Try again, please.");
+                    continue;
+                }
 
-            decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
-            if (amount < 0 || amount > this.BankAccount.BankAccount.AmountBalance)
-                Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
+                decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
 
-            bankAccountTo.BankAccount.AmountBalance += amount;
-            this.BankAccount.BankAccount.AmountBalance -= amount;
+                if (amount < 0 || amount > this.BankAccount.BankAccount.AmountBalance)
+                {
+                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
+                    continue;
+                }
 
-            bankAccountTo.SaveAnotherClass(bankAccountTo.BankAccount);
-            BankAccount.SaveAnotherClass(BankAccount.BankAccount);
+                bankAccountTo.BankAccount.AmountBalance += amount;
+                this.BankAccount.BankAccount.AmountBalance -= amount;
+
+                bankAccountTo.SaveAnotherClass(bankAccountTo.BankAccount);
+                BankAccount.SaveAnotherClass(BankAccount.BankAccount);
+
+                Console.WriteLine("Transfer completed successfully.");
+                BankOperation = new BankOperation(NumberOperation, DateTime.Now, TypeOperation.Transfer, BankAccount.BankAccount, bankAccountTo.BankAccount);
+                break;
+            }  
         }
 
         private List<BankOperation> Load()
         {
+            var list = base.Load<BankOperation>();
+            NumberOperation = list.Count() + 1;
+
             return base.Load<BankOperation>() ?? new List<BankOperation>();
         }
 

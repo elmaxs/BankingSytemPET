@@ -15,6 +15,17 @@ namespace BankingSystemPET.BL.Controller
             new ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserController).Assembly);
         public BankAccount BankAccount {  get; set; }
 
+        public BankAccountController(string indef)
+        {
+            if (string.IsNullOrWhiteSpace(indef)) throw new ArgumentNullException("Invalid data", nameof(indef));
+            BankAccount = GetAccount(int.Parse(indef));
+
+            if (BankAccount == null)
+            {
+                throw new ArgumentNullException("Bank account not found");
+            }
+        }
+
         public BankAccountController(int indef)
         {
             BankAccount = GetAccount(indef);
