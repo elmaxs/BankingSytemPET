@@ -10,7 +10,7 @@ namespace BankingSystemPET.BL.Utilities
 {
     public static class LocalizationManager
     {
-        //private static ResourceManager _resourceManager = new ResourceManager("BankingSystemPET.BL.Resources.Messages", typeof(Localization).Assembly);
+        private static ResourceManager _resourceManager = new ResourceManager("BankingSystemPET.BL.Localization.Messages", typeof(LocalizationManager).Assembly);
 
         public static string GetString(ResourceManager resourceManager, string key)
         {

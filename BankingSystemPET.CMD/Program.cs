@@ -1,4 +1,5 @@
-﻿using BankingSystemPET.BL.Utilities;
+﻿using BankingSystemPET.BL.Controller;
+using BankingSystemPET.BL.Utilities;
 using System.Resources;
 
 namespace BankingSystemPET.CMD
@@ -15,6 +16,8 @@ namespace BankingSystemPET.CMD
             LocalizationManager.SetCulture(choseLanguage ?? "en");
 
             Console.WriteLine(LocalizationManager.GetString(_resourceManager, "HelloMessages"));
+
+            InterfaceController controller = new InterfaceController();
         }
     }
 }

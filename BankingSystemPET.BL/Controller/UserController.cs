@@ -16,8 +16,17 @@ namespace BankingSystemPET.BL.Controller
         public bool IsNewUser { get; set; } = false;
         public User User { get; set; }
 
+        public UserController()
+        {
+            Console.WriteLine("Enter your indef");
+            new UserController(int.Parse(Console.ReadLine()));
+        }
+
         public UserController(int indef)
         {
+            if (indef <= 0)
+                throw new ArgumentException("Indef cant be less or equal 0", nameof(indef));
+
             User = GetUser(indef);
             if (User == null)
             {

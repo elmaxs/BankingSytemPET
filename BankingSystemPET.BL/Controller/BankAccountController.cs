@@ -15,9 +15,18 @@ namespace BankingSystemPET.BL.Controller
             new ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserController).Assembly);
         public BankAccount BankAccount {  get; set; }
 
+        public BankAccountController()
+        {
+            Console.WriteLine("Enter your indef");
+
+            new BankAccountController(int.Parse(Console.ReadLine()));
+        }
+
         public BankAccountController(string indef)
         {
             if (string.IsNullOrWhiteSpace(indef)) throw new ArgumentNullException("Invalid data", nameof(indef));
+            if (int.Parse(indef) <= 0) throw new ArgumentException("Indef cant be less or equal 0", nameof(indef));
+
             BankAccount = GetAccount(int.Parse(indef));
 
             if (BankAccount == null)
@@ -28,6 +37,8 @@ namespace BankingSystemPET.BL.Controller
 
         public BankAccountController(int indef)
         {
+            if (indef <= 0) throw new ArgumentException("Indef cant be less or equal 0", nameof(indef));
+
             BankAccount = GetAccount(indef);
 
             if(BankAccount == null)
