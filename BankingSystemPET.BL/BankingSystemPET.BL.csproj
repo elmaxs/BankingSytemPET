@@ -11,20 +11,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Localization\BankAccountController.Designer.cs">
+    <Compile Update="Localization\BankAccountControllerMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>BankAccountController.resx</DependentUpon>
+      <DependentUpon>BankAccountControllerMessages.resx</DependentUpon>
     </Compile>
     <Compile Update="Localization\Messages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Localization\OperationController.Designer.cs">
+    <Compile Update="Localization\OperationControllerMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>OperationController.resx</DependentUpon>
+      <DependentUpon>OperationControllerMessages.resx</DependentUpon>
     </Compile>
     <Compile Update="Localization\UserControllerMessages.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -34,17 +34,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Localization\BankAccountController.resx">
+    <EmbeddedResource Update="Localization\BankAccountControllerMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BankAccountController.Designer.cs</LastGenOutput>
+      <LastGenOutput>BankAccountControllerMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Localization\Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Localization\OperationController.resx">
+    <EmbeddedResource Update="Localization\OperationControllerMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OperationController.Designer.cs</LastGenOutput>
+      <LastGenOutput>OperationControllerMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Localization\UserControllerMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

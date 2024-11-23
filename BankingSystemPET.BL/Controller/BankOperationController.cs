@@ -22,6 +22,7 @@ namespace BankingSystemPET.BL.Controller
 
         public BankOperationController()
         {
+            LocalizationManager.ChoseLocal("BankingSystemPET.BL.Localization.BankOperationControllerMessages");
             BankAccount = new BankAccountController(GetIndef());
 
             InterfaceOperation();
@@ -29,13 +30,13 @@ namespace BankingSystemPET.BL.Controller
 
         private int GetIndef()
         {
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterYourIndef"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "EnterYourIndef"));
             while (true)
             {
                 if (int.TryParse(Console.ReadLine(), out int indef) && indef > 0)
                     return indef;
                 else
-                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "InvalidData"));
+                    Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "InvalidData"));
             }
         }
 
@@ -73,10 +74,10 @@ namespace BankingSystemPET.BL.Controller
 
         private int ChoseOperation()
         {
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ChoseOperation"));
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ReplenishmentOperation"));
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "RemovalOperation"));
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "TransferOperation"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "ChoseOperation"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "ReplenishmentOperation"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "RemovalOperation"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "TransferOperation"));
 
             while (true)
             {
@@ -85,10 +86,10 @@ namespace BankingSystemPET.BL.Controller
                     if (chose == 1 || chose == 2 || chose == 3)
                         return chose;
                     else
-                        Console.WriteLine(LocalizationManager.GetString(_resourceManager, "NotFoundOperation"));
+                        Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "NotFoundOperation"));
                 }
                 else
-                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "InvalidData"));
+                    Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "InvalidData"));
             }
         }
 
@@ -105,20 +106,20 @@ namespace BankingSystemPET.BL.Controller
         {
             if (string.IsNullOrWhiteSpace(nameMethod)) throw new ArgumentNullException("Name method cant be null", nameof(nameMethod));
 
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, $"EnterAmount{nameMethod}"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", $"EnterAmount{nameMethod}"));
             while (true)
             {
                 if (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
                     return amount;
                 else
-                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
+                    Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/"BankingSystemPET.BL.Localization.BankOperationControllerMessages", "ErrorAmountLessNull"));
             }
         }
         private void ReplenishmentOperation()
         {
             decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
             if (amount < 0)
-                Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
+                Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "ErrorAmountLessNull"));
 
             this.BankAccount.BankAccount.AmountBalance += amount;
 
@@ -131,7 +132,7 @@ namespace BankingSystemPET.BL.Controller
         {
             decimal amount = GetAmount(GetFirstWord(nameof(ReplenishmentOperation)));
             if (amount < 0)
-                Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
+                Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/"BankingSystemPET.BL.Localization.BankOperationControllerMessages", "ErrorAmountLessNull"));
 
             if (amount > this.BankAccount.BankAccount.AmountBalance)
                 Console.WriteLine("The top-up amount is greater than the remaining amount");
@@ -142,7 +143,7 @@ namespace BankingSystemPET.BL.Controller
             BankOperation = new BankOperation(NumberOperation, DateTime.Now, TypeOperation.Removal, BankAccount.BankAccount, BankAccount.BankAccount);
         }
 
-        private void TransferOperation()
+        public void TransferOperation()
         {
             while (true)
             {
@@ -165,7 +166,7 @@ namespace BankingSystemPET.BL.Controller
 
                 if (amount < 0 || amount > this.BankAccount.BankAccount.AmountBalance)
                 {
-                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ErrorAmountLessNull"));
+                    Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankOperationControllerMessages", "ErrorAmountLessNull"));
                     continue;
                 }
 

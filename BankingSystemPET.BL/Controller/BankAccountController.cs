@@ -11,12 +11,13 @@ namespace BankingSystemPET.BL.Controller
 {
     public class BankAccountController : BaseController
     {
-        private static readonly ResourceManager _resourceManager =
-            new ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserController).Assembly);
+        //private static readonly ResourceManager _resourceManager =
+        //    new ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserController).Assembly);
         public BankAccount BankAccount {  get; set; }
 
         public BankAccountController()
         {
+            LocalizationManager.ChoseLocal("BankingSystemPET.BL.Localization.BankAccountControllerMessages");
             Console.WriteLine("Enter your indef");
 
             new BankAccountController(int.Parse(Console.ReadLine()));
@@ -73,7 +74,7 @@ namespace BankingSystemPET.BL.Controller
 
         private TypeBankAccount ParseTypeAccount()
         {
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ChoseTypeAccount"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankAccountControllerMessages", "ChoseTypeAccount"));
             while (true)
             {
                 if (int.TryParse(Console.ReadLine(), out int chose))
@@ -81,10 +82,10 @@ namespace BankingSystemPET.BL.Controller
                     if (Enum.IsDefined(typeof(TypeBankAccount), chose))
                         return (TypeBankAccount)chose;
                     else
-                        Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ParseTypeAccountNotFound"));
+                        Console.WriteLine(LocalizationManager.GetString(/*/*_resourceManager,*/ "BankingSystemPET.BL.Localization.BankAccountControllerMessages", "ParseTypeAccountNotFound"));
                 }
                 else
-                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "ParseNotCorrectData"));
+                    Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/"BankingSystemPET.BL.Localization.BankAccountControllerMessages", "ParseNotCorrectData"));
             }
         }
 

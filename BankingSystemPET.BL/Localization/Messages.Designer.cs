@@ -59,5 +59,14 @@ namespace BankingSystemPET.BL.Localization {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Welcome to program BankingSystem.
+        /// </summary>
+        internal static string HelloMessages {
+            get {
+                return ResourceManager.GetString("HelloMessages", resourceCulture);
+            }
+        }
     }
 }

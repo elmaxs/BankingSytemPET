@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloMessages" xml:space="preserve">
-    <value>Welcome to program BankingSystem</value>
+  <data name="ChoseTypeAccount" xml:space="preserve">
+    <value>Оберіть тип рахунку (1. Кредит 2. Збереження)</value>
+  </data>
+  <data name="ParseNotCorrectData" xml:space="preserve">
+    <value>Не коректні дані, спробуйте ще раз</value>
+  </data>
+  <data name="ParseTypeAccountNotFound" xml:space="preserve">
+    <value>Тип рахунку не знайдено, спробуйте ще раз</value>
   </data>
 </root>

@@ -26,7 +26,7 @@ namespace BankingSystemPET.BL.Model
 
         public User(int indef)
         {
-            if (Indef <= 0)
+            if (indef <= 0)
                 throw new ArgumentException("Indef cant be equal or less 0");
             Indef = indef;
         }

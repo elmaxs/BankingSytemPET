@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloMessages" xml:space="preserve">
-    <value>Welcome to program BankingSystem</value>
+  <data name="ChoseOperation" xml:space="preserve">
+    <value>Оберіть операцію</value>
+  </data>
+  <data name="EnterAmountRemoval" xml:space="preserve">
+    <value>Ведіть суму зняття</value>
+  </data>
+  <data name="EnterAmountReplenishment" xml:space="preserve">
+    <value>Ведіть суму поповнення</value>
+  </data>
+  <data name="EnterAmountTransfer" xml:space="preserve">
+    <value>Ведіть суму для переказу</value>
+  </data>
+  <data name="EnterYourIndef" xml:space="preserve">
+    <value>Ведіть ваш індеф. код</value>
+  </data>
+  <data name="ErrorAmountLessNull" xml:space="preserve">
+    <value>Суму не може бути менше 0</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Не коректні дані, спробуйте ще раз</value>
+  </data>
+  <data name="NotFoundOperation" xml:space="preserve">
+    <value>Операцію не знайдено, спробуйте ще раз</value>
+  </data>
+  <data name="RemovalOperation" xml:space="preserve">
+    <value>2. Операція зняття коштів</value>
+  </data>
+  <data name="ReplenishmentOperation" xml:space="preserve">
+    <value>1. Операція поповнення балансу</value>
+  </data>
+  <data name="TransferOperation" xml:space="preserve">
+    <value>3. Операція переказу коштів</value>
   </data>
 </root>

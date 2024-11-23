@@ -12,12 +12,13 @@ namespace BankingSystemPET.BL.Controller
     public class UserController : BaseController
     {
         private static readonly ResourceManager _resourceManager =
-            new ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserController).Assembly);
+            new ResourceManager("BankingSystemPET.BL.Localization.UserControllerMessages", typeof(UserController).Assembly); 
         public bool IsNewUser { get; set; } = false;
         public User User { get; set; }
 
         public UserController()
         {
+            LocalizationManager.ChoseLocal("BankingSystemPET.BL.Localization.UserControllerMessages");
             Console.WriteLine("Enter your indef");
             new UserController(int.Parse(Console.ReadLine()));
         }
@@ -39,14 +40,14 @@ namespace BankingSystemPET.BL.Controller
 
         private void SetNewUserData()
         {
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "NotRegistered"));
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterName"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.UserControllerMessages", "NotRegistered"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.UserControllerMessages", "EnterName"));
             string name = Console.ReadLine();
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterPassword"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.UserControllerMessages", "EnterPassword"));
             string password = Console.ReadLine();
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterResidence"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.UserControllerMessages", "EnterResidence"));
             string placeResidence = Console.ReadLine();
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterPhoneNumber"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/"BankingSystemPET.BL.Localization.UserControllerMessages", "EnterPhoneNumber"));
             string phoneNumber = Console.ReadLine();
             DateTime birthDate = DataTimeParse();
 
@@ -75,7 +76,7 @@ namespace BankingSystemPET.BL.Controller
 
         private DateTime DataTimeParse()
         {
-            Console.WriteLine(LocalizationManager.GetString(_resourceManager, "EnterBirthDate"));
+            Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.UserControllerMessages", "EnterBirthDate"));
             while (true)
             {
                 if (DateTime.TryParse(Console.ReadLine(), out var date))
@@ -83,7 +84,7 @@ namespace BankingSystemPET.BL.Controller
                     return date;
                 }
                 else
-                    Console.WriteLine(LocalizationManager.GetString(_resourceManager, "InvalidDataTimeParse"));
+                    Console.WriteLine(LocalizationManager.GetString(/*_resourceManager,*/ "BankingSystemPET.BL.Localization.UserControllerMessages", "InvalidDataTimeParse"));
             }
         }
 
