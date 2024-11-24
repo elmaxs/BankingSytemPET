@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloMessages" xml:space="preserve">
-    <value>Вітаємо у програмі BankingSystem</value>
+  <data name="ChoseOperation" xml:space="preserve">
+    <value>Chose operation</value>
+  </data>
+  <data name="EnterAmountRemoval" xml:space="preserve">
+    <value>Enter amount for removal</value>
+  </data>
+  <data name="EnterAmountReplenishment" xml:space="preserve">
+    <value>Enter amount for replenishment</value>
+  </data>
+  <data name="EnterAmountTransfer" xml:space="preserve">
+    <value>Enter amount for transfer</value>
+  </data>
+  <data name="EnterYourIndef" xml:space="preserve">
+    <value>Enter your indef</value>
+  </data>
+  <data name="ErrorAmountLessNull" xml:space="preserve">
+    <value>Amount cant be less 0</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Invalid data, try again</value>
+  </data>
+  <data name="NotFoundOperation" xml:space="preserve">
+    <value>Operation was not found, try again</value>
+  </data>
+  <data name="RemovalOperation" xml:space="preserve">
+    <value>2. Removal operation</value>
+  </data>
+  <data name="ReplenishmentOperation" xml:space="preserve">
+    <value>1. Replenishment operation</value>
+  </data>
+  <data name="TransferOperation" xml:space="preserve">
+    <value>3. Translation operation</value>
   </data>
 </root>

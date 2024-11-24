@@ -36,6 +36,8 @@ namespace BankingSystemPET.BL.Controller
                 SetNewUserData();
                 Save();
             }
+            else
+                Console.WriteLine(User);
         }
 
         private void SetNewUserData()

@@ -24,6 +24,8 @@ namespace BankingSystemPET.BL.Model
 
         public int CurrectAge { get { return DateTime.Now.Year - BirthDate.Value.Year; } }
 
+        public User() { }
+
         public User(int indef)
         {
             if (indef <= 0)

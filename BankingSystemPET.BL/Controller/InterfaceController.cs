@@ -18,28 +18,57 @@ namespace BankingSystemPET.BL.Controller
 
         public InterfaceController()
         {
-            switch (GetDo())
+            bool chose = true;
+            while (chose)
             {
-                case 1:
+                switch (GetDo())
+                {
+                    case 1:
+                        {
+                            UserController = new UserController();
+                            break;
+                        }
+                    case 2:
+                        {
+                            BankAccountController = new BankAccountController();
+                            break;
+                        }
+                    case 3:
+                        {
+                            BankOperationController = new BankOperationController();
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Invalid data try again");
+                            break;
+                        }
+                }
+                chose = Continue();
+            }
+        }
+
+        private bool Continue()
+        {
+            Console.WriteLine("Do you wanna exit?\n1.Yes 2.No");
+
+            while (true)
+            {
+                if(int.TryParse(Console.ReadLine(), out int chose))
+                {
+                    if(chose == 1 || chose == 2)
                     {
-                        UserController = new UserController();
-                        break;
+                        return chose == 1 ? false : true;
                     }
-                case 2:
+                    else
                     {
-                        BankAccountController = new BankAccountController();
-                        break;
+                        Console.WriteLine("Invalid data, try again");
                     }
-                case 3:
-                    {
-                        BankOperationController = new BankOperationController();
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Invalid data try again");
-                        break;
-                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid data, try again");
+                }
             }
         }
 

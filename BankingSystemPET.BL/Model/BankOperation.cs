@@ -15,6 +15,8 @@ namespace BankingSystemPET.BL.Model
         public DateTime OperationTime { get; set; }
         public TypeOperation OperationType { get; set; }
 
+        public BankOperation() { }
+
         public BankOperation(int numberOperation, DateTime operationTime, TypeOperation operation, BankAccount fromAccount, BankAccount toAccount)
         {
             if (numberOperation <= 0) throw new ArgumentException("Number operation cant be less or equal 0", nameof(numberOperation));
@@ -28,6 +30,11 @@ namespace BankingSystemPET.BL.Model
             ToAccount = toAccount;
             OperationTime = operationTime;
             OperationType = operation;
+        }
+
+        public override string ToString()
+        {
+            return $"{NumberOperation}, {OperationType}, {FromAccount.User.Indef}, {FromAccount.User.Indef}, {OperationTime}";
         }
     }
 }

@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloMessages" xml:space="preserve">
-    <value>Вітаємо у програмі BankingSystem</value>
+  <data name="EnterBirthDate" xml:space="preserve">
+    <value>Enter your birth date</value>
+  </data>
+  <data name="EnterName" xml:space="preserve">
+    <value>Please enter your name</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Please enter your new password</value>
+  </data>
+  <data name="EnterPhoneNumber" xml:space="preserve">
+    <value>Enter your actual phone number</value>
+  </data>
+  <data name="EnterResidence" xml:space="preserve">
+    <value>Enter your actual residence</value>
+  </data>
+  <data name="InvalidDataTimeParse" xml:space="preserve">
+    <value>Invalid data, try again</value>
+  </data>
+  <data name="NotRegistered" xml:space="preserve">
+    <value>You are not registered</value>
   </data>
 </root>

@@ -11,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Localization\BankAccountControllerMessages.en-US.Designer.cs">
+      <DependentUpon>BankAccountControllerMessages.en-US.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Localization\BankAccountControllerMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -21,10 +26,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
+    <Compile Update="Localization\OperationControllerMessages.en-US.Designer.cs">
+      <DependentUpon>OperationControllerMessages.en-US.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Localization\OperationControllerMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>OperationControllerMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\UserControllerMessages.en-US.Designer.cs">
+      <DependentUpon>UserControllerMessages.en-US.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Localization\UserControllerMessages.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -34,6 +49,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Localization\BankAccountControllerMessages.en-US.resx">
+      <LastGenOutput>BankAccountControllerMessages.en-US.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\BankAccountControllerMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BankAccountControllerMessages.Designer.cs</LastGenOutput>
@@ -42,9 +61,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Localization\OperationControllerMessages.en-US.resx">
+      <LastGenOutput>OperationControllerMessages.en-US.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\OperationControllerMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>OperationControllerMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\UserControllerMessages.en-US.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>UserControllerMessages.en-US.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Localization\UserControllerMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
