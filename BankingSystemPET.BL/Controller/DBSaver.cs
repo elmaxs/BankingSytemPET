@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BankingSystemPET.BL.Controller
 {
-    public class DBSaver : IDataSaver
+    public static class DBSaver 
     {
-        public List<T> Load<T>() where T : class
+        public static List<T> Load<T>() where T : class
         {
             using(var db = new BankingSystemContext())
             {
@@ -17,7 +17,7 @@ namespace BankingSystemPET.BL.Controller
             }
         }
 
-        public void Save<T>(List<T> item) where T : class
+        public static void Save<T>(T item) where T : class
         {
             using(var db = new BankingSystemContext())
             {

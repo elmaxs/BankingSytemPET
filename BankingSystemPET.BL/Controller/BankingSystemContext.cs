@@ -13,6 +13,7 @@ namespace BankingSystemPET.BL.Controller
     {
         public DbSet<BankAccount> BankAccount { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<BankOperation> BankOperations { get; set; }
 
         public BankingSystemContext()
         {

@@ -34,7 +34,8 @@ namespace BankingSystemPET.BL.Controller
                 User = new User(indef);
                 IsNewUser = true;
                 SetNewUserData();
-                Save();
+                SaveDB();
+                //Save();
             }
             else
                 Console.WriteLine(User);
@@ -121,6 +122,10 @@ namespace BankingSystemPET.BL.Controller
 
             // Сохраняем обновленный список пользователей
             base.Save(users);         
+        }
+        private void SaveDB()
+        {
+            DBSaver.Save(User);
         }
     }
 }
